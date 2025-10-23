@@ -8,34 +8,38 @@
   <body>
     <h1>Weather App</h1>
     <div class="weather-data">
-
-      <input type="text" class="search-input" placeholder="Search"/>
-      <button class="search-btn">Search</button>
-
-      <div class="center-part">
+      <div class="top-part">
+        <div class="search-bar">
+          <input type="text" class="search-input" placeholder="Search for a city..." />
+          <button class="search-btn"><img src="3a608aca6f4d314714c4.png" class="search-icon"></button>
+        </div>
+         <button class="toggle-btn" style="display: none;">°C</button>
+      </div>
+      <div id="loading" style="display: none;">Loading weather data...</div>
+      <div class="center-part" style="display: none;">
         <img class="weather-icon"/>
-        <p id="temperature"></p>
-        <p id="city"></p>
+        <span id="temperature"></span>
+        <span id="city"></span>
       </div>
 
-      <div class="bottom-part">
-        <div class="bottom-part1">
-            <div>
-                <img class="humidity-icon" src="1c4b7e446fbb6bca2962.png">
-            </div>
-            <div>
-                <span id="humidity-value"></span>
-                <span>Humidity</span>
-            </div>
+      <div class="bottom-part-div" style="display: none;">
+        <div class="bottom-part bottom-part1">
+          <div>
+            <img class="humidity-icon" src="1c4b7e446fbb6bca2962.png" />
+          </div>
+          <div class="bottom-value">
+            <span id="humidity-value"></span>
+            <span style="font-size: 0.8rem;">Humidity</span>
+          </div>
         </div>
-        <div class="bottom-part2">
-            <div>
-                <img class="wind-icon" src="9a5e68987c5e27b759b6.svg">
-            </div>
-            <div>
-                <span id="wind-value"></span>
-                <span>Wind Speed</span>
-            </div>
+        <div class="bottom-part bottom-part2">
+          <div>
+            <img class="wind-icon" src="9a5e68987c5e27b759b6.svg" />
+          </div>
+          <div class="bottom-value">
+            <span id="wind-value"></span>
+            <span style="font-size: 0.8rem;">Wind Speed</span>
+          </div>
         </div>
       </div>
     </div>
