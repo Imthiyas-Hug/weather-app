@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Weather App</h1>
+    <div class="weather-data">
+      <div class="top-part">
+        <div class="search-bar">
+          <input type="text" class="search-input" placeholder="Search for a city..." />
+          <button class="search-btn"><img src="./images/search.png" class="search-icon"></button>
+        </div>
+         <button class="toggle-btn" style="display: none;">°C</button>
+      </div>
+      <div id="loading" style="display: none;">Loading weather data...</div>
+      <div class="center-part" style="display: none;">
+        <img class="weather-icon"/>
+        <span id="temperature"></span>
+        <span id="city"></span>
+      </div>
+
+      <div class="bottom-part-div" style="display: none;">
+        <div class="bottom-part bottom-part1">
+          <div>
+            <img class="humidity-icon" src="./images/humidity_7925310.png" />
+          </div>
+          <div class="bottom-value">
+            <span id="humidity-value"></span>
+            <span style="font-size: 0.8rem;">Humidity</span>
+          </div>
+        </div>
+        <div class="bottom-part bottom-part2">
+          <div>
+            <img class="wind-icon" src="./images/weather-windy.svg" />
+          </div>
+          <div class="bottom-value">
+            <span id="wind-value"></span>
+            <span style="font-size: 0.8rem;">Wind Speed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
