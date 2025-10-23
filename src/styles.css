@@ -130,7 +130,7 @@ h1 {
   font-size: 1rem;
   color: rgb(0, 86, 162);
 }
-#loading {
+#loading , .error-message{
   font-size: 1.2rem;
   font-weight: bold;
   color: #324353;

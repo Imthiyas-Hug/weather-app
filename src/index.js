@@ -26,25 +26,15 @@ async function getWeatherData() {
     weatherIcon.src = imageURL.default;
     city.textContent = weatherData.address;
     temp.textContent = `${weatherData.days[0].temp}°F`;
+    temp.dataset.fahrenheit = weatherData.days[0].temp;
     humidityValue.textContent = `${weatherData.days[0].humidity}%`;
     windValue.textContent = `${(
       weatherData.days[0].windspeed * 1.60934
     ).toFixed(2)} km/hr`;
-    toggleBtn.addEventListener("click", (e) => {
-      if (e.target.textContent == "°C") {
-        let celcius = (((weatherData.days[0].temp - 32) * 5) / 9).toFixed(2);
-        console.log("cel", celcius);
-        temp.innerText = `${celcius}°C`;
-        e.target.textContent = "°F";
-      } else {
-        let fahrenheit = `${weatherData.days[0].temp}°F`;
-        console.log("fah", fahrenheit);
-        temp.textContent = fahrenheit;
-        e.target.textContent = "°C";
-      }
-    });
+   
   } catch (e) {
-    console.error(e);
+    weatherDataDiv.innerHTML = `<p style="color:red;" class='error-message'>City not found or network error.</p>`;
+    loading.style.display = "none";
   }
 }
 
@@ -55,4 +45,16 @@ searchBtn.addEventListener("click", () => {
   bottomDiv.style.display = "none";
   toggleBtn.style.display = "none";
   getWeatherData();
+});
+
+toggleBtn.addEventListener("click", (e) => {
+  if (e.target.textContent === "°C") {
+    const fahrenheit = parseFloat(temp.dataset.fahrenheit);
+    const celcius = (((fahrenheit - 32) * 5) / 9).toFixed(2);
+    temp.innerText = `${celcius}°C`;
+    e.target.textContent = "°F";
+  } else {
+    temp.innerText = `${temp.dataset.fahrenheit}°F`;
+    e.target.textContent = "°C";
+  }
 });
