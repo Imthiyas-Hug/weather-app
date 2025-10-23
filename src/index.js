@@ -50,6 +50,7 @@ async function getWeatherData() {
 
 searchBtn.addEventListener("click", () => {
   loading.style.display = "block";
+  toggleBtn.textContent = "°C";
   centerDiv.style.display = "none";
   bottomDiv.style.display = "none";
   toggleBtn.style.display = "none";
