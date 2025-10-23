@@ -10,7 +10,9 @@ const humidityValue = document.querySelector("#humidity-value");
 const windValue = document.querySelector("#wind-value");
 const toggleBtn = document.querySelector(".toggle-btn");
 const loading = document.querySelector("#loading");
+const errorMessage = document.createElement("p");
 const weatherDataDiv = document.querySelector(".weather-data");
+
 async function getWeatherData() {
   try {
     const cityValue = searchInput.value;
@@ -18,6 +20,7 @@ async function getWeatherData() {
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityValue}?unitGroup=us&key=UXA9C2SB49MAYTRTEM4T9ZVBV&contentType=json`
     );
     const weatherData = await response.json();
+    errorMessage.style.display = "none";
     loading.style.display = "none";
     centerDiv.style.display = "flex";
     bottomDiv.style.display = "flex";
@@ -31,10 +34,16 @@ async function getWeatherData() {
     windValue.textContent = `${(
       weatherData.days[0].windspeed * 1.60934
     ).toFixed(2)} km/hr`;
-   
   } catch (e) {
-    weatherDataDiv.innerHTML = `<p style="color:red;" class='error-message'>City not found or network error.</p>`;
+    errorMessage.style.display = "block";
+    errorMessage.classList.add("error-message");
+    errorMessage.textContent = "City not found or network error.";
+    errorMessage.style.color = "red";
+    weatherDataDiv.append(errorMessage);
     loading.style.display = "none";
+    centerDiv.style.display = "none";
+    bottomDiv.style.display = "none";
+    toggleBtn.style.display = "none";
   }
 }
 
@@ -44,6 +53,7 @@ searchBtn.addEventListener("click", () => {
   centerDiv.style.display = "none";
   bottomDiv.style.display = "none";
   toggleBtn.style.display = "none";
+  errorMessage.style.display = "none";
   getWeatherData();
 });
 
