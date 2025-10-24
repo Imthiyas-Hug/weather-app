@@ -167,6 +167,10 @@ var map = {
 		"./src/images/thunderstorm.png",
 		"src_images_thunderstorm_png"
 	],
+	"./title.png": [
+		"./src/images/title.png",
+		"src_images_title_png"
+	],
 	"./tornado.png": [
 		"./src/images/tornado.png",
 		"src_images_tornado_png"
